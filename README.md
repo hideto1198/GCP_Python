@@ -1,7 +1,8 @@
 # GCP_Python
 pythonでCloud Functionを書く
 
-VScodeなどのIDEでコードを書く場合は以下のインストールが必須です
+VScodeなどのIDEでコードを書く場合は以下のインストールが必須です<br>
+ダウンロード後そのまま使用することはできないので、自分でテストプロジェクトを作成し利用してください<br>
 
 ``` cmd
 pip install google
@@ -16,3 +17,4 @@ IDEで期待した結果を取得できるか確認してからデプロイす�
 
 - delete.py ・・・フィールド、ドキュメント、コレクションの削除サンプル
 - transaction.py ・・・update,setでtransactionを利用するサンプル
+- thread.py ・・・transactionの有効性を確認するサンプル
