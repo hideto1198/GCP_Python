@@ -1,4 +1,4 @@
-# データ、ドキュメントを削除する
+# フィールド、ドキュメント、コレクションを削除する
 
 import json
 from google.cloud import firestore
