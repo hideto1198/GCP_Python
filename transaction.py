@@ -1,27 +1,12 @@
-# テストなどでローカルで使用する場合はこっちを使用する
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
 import json
-from firebase_admin import messaging
-from datetime import datetime
-from random import choice
-
-# serviceAccount.jsonを同一フォルダ内に配置
-cred = credentials.Certificate('serviceAccount.json')
-firebase_admin.initialize_app(cred)
-
-db = firestore.client()
-
-""" Cloud Functionsにデプロイする場合はこっち
-import json
-import firebase_admin
-from firebase_admin import messaging
 from google.cloud import firestore
+from google.oauth2.service_account import Credentials
 from datetime import datetime
-from random import choice
 
-firebase_admin.initialize_app()
+cred = Credentials.from_service_account_file(filename='serviceAccount.json')
+db = firestore.Client(credentials=cred)
+
+""" deploy用
 db = firestore.Client()
 """
 
