@@ -1,7 +1,6 @@
 import json
 from google.cloud import firestore
 from google.oauth2.service_account import Credentials
-from datetime import datetime
 
 cred = Credentials.from_service_account_file(filename='serviceAccount.json')
 db = firestore.Client(credentials=cred)
@@ -31,7 +30,7 @@ def main(request):
         
         # transaction内でデータを取得し、そのデータを元に(加算、減算など)
         ref = db.collection('USER').document(f'{data["userID"]}')
-        user_info = ref.get().to_dict()
+        user_info = ref.get(transaction=transaction).to_dict()
         transaction.update(ref, {
             'access_count': user_info['access_count'] + 1
         })
